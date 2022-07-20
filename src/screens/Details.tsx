@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import { VStack, useTheme, HStack, Text, ScrollView } from 'native-base';
+import { VStack, useTheme, HStack, Text, ScrollView, Box } from 'native-base';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import firestore from '@react-native-firebase/firestore';
-import { CircleWavyCheck, Hourglass, DesktopTower, Clipboard, CircleWavy } from 'phosphor-react-native';
+import { CircleWavyCheck, Hourglass, DesktopTower, ClipboardText } from 'phosphor-react-native';
 
 import { Header } from '../components/Header';
 import { OrderProps } from '../components/Order';
@@ -88,7 +88,10 @@ export function Details() {
 
   return (
     <VStack flex={1} bg="gray.700">
-      <Header title="Solicitação" />
+      <Box px={6} bg="gray.600">
+        <Header title="Solicitação" />
+      </Box>
+
       <HStack
         bg="gray.500"
         justifyContent="center"
@@ -114,14 +117,14 @@ export function Details() {
         <CardDetails 
           title="equipamento"
           description={`Patrimônio ${order.patrimony}`}
-          icon={DesktopTower}
-          footer={order.when}
+          icon={DesktopTower}          
         />
         
         <CardDetails 
           title="descrição do problema"
           description={order.description}
-          icon={Clipboard}
+          icon={ClipboardText}
+          footer={`Registrado em ${order.when}`}
         />
         
         <CardDetails 
