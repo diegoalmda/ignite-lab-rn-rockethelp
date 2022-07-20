@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { VStack } from 'native-base';
 
 import { Header } from '../components/Header';
@@ -5,6 +6,9 @@ import { Input } from '../components/Input';
 import { Button } from '../components/Button';
 
 export function Register() {
+  const [isLoading, setIsLoading] = useState(false);
+  const [patrimony, setPatrimony] = useState('');
+
   return (
     <VStack flex={1} p={6} bg="gray.600">
       <Header title="Nova solicitação" />
